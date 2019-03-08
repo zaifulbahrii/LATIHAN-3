@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main(int argc, char **argv)
+{
+	int data [8]={6,5,3,1,8,7,2,4}, banyak_data, i, j, tampung, bagi;
+	banyak_data=8;
+	bagi=banyak_data/2;
+
+	std::cout << "\ndata sebelum terurut : ";
+	for (i=0; i<banyak_data; i++){
+		std::cout << data[i] << " ";
+	}
+	do{
+		for (i=bagi;i<banyak_data;i++){
+			tampung=data[i];
+			j=i-bagi;
+			while (j>=0 && data[j]>tampung){
+				data [j+bagi]=data[j];
+				j=j-bagi;
+			}
+			data [j+bagi]=tampung;
+		}
+		bagi=bagi/2;
+	}while (bagi > 0);
+	
+	std::cout << "\ndata terurut: ";
+	for (i=0; i<banyak_data; i++){
+		std::cout << data [i] << " ";
+	}
+	
+	return 0;
+}
